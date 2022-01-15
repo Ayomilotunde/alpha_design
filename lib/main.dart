@@ -23,8 +23,9 @@ class _State extends State<MyApp> {
 
   final List<Widget> _widgets = <Widget>[
     const Text('This is News'),
+    const Home(),
     const TrackDelivery(),
-    const Text('This is it'),
+
   ];
 
   void _onTapItem(int item) {
@@ -37,10 +38,31 @@ class _State extends State<MyApp> {
   Widget build(BuildContext context) {
     // ignore: unnecessary_new
     return new Scaffold(
-      // appBar: new AppBar(
-      //     // title: new Text('Main screen '),
+      // appBar:  AppBar(
+      //     title: const Text('Home '),
       //     ),
 
+      appBar:  AppBar(
+        title: const Text('Home '),
+      ),
+      drawer:  Drawer(
+        child:  Container(
+          padding: const EdgeInsets.all(32.0),
+          child:  Column(
+            children:  <Widget> [
+              const Text('data'),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget> [
+                  ElevatedButton(onPressed: ()=> Navigator.pop(context), child: const Text('Elevated Button'), ),
+                  const TextButton(onPressed: null, child: Text('Text Button'))
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
       body:  Center(child: _widgets.elementAt(index)),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
