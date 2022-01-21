@@ -38,7 +38,7 @@ class ListItemWidget extends State<SwipeList> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
         child: ListView.builder(
           itemCount: items.length,
           itemBuilder: (context, index) {
@@ -72,14 +72,14 @@ class ListItemWidget extends State<SwipeList> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             // Text(
-                            // items[index],
+                              // items[index],
                             // ),
                             Padding(
                               padding: const EdgeInsets.fromLTRB(0, 3, 0, 3),
                               child: Container(
                                 width: 260,
                                 decoration: const BoxDecoration(
-                                  // border: Border.all(color: Colors.teal),
+                                    // border: Border.all(color: Colors.teal),
                                     borderRadius: BorderRadius.all(
                                         Radius.circular(10))
                                 ),
