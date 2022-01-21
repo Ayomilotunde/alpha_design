@@ -1,135 +1,136 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    home: ClosedOrder(),
-  ));
-}
+void main() => runApp(MyApp());
 
-class ClosedOrder extends StatefulWidget {
-  const ClosedOrder({Key? key}) : super(key: key);
-
+class MyApp extends StatelessWidget {
   @override
-  _State createState() => _State();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+    );
+  }
 }
 
-class _State extends State<ClosedOrder> {
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.all(20.0),
-        child:  Center(
-          child: Column(
-            children: <Widget>[
-              Card(
-                child: Container(
-                  padding: const EdgeInsets.all(10.0),
-                  child:  Row(
-                    children: [
-                      Container(
-                          margin: const EdgeInsets.all(10.0),
-                          child: Image.asset('assets/images/splash.jpeg', height: 40, width: 40)
-                      ),
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:  const <Widget>[
-                          Text('Genotype Test Order', style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 20.0,
-                          ) ,),
-                          Text('DjangoLaboratory'),
-                          Text('Delivered on: 27/02/2022'),
-                        ],
-                      ),
-                    ],
-                  ),
 
+        body: Center(child: SwipeList()));
+  }
+}
+
+class SwipeList extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return ListItemWidget();
+  }
+}
+
+class ListItemWidget extends State<SwipeList> {
+  List items = getDummyList();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: const EdgeInsets.all(10.0),
+        child: ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return Card(
+              elevation: 5,
+              child: SizedBox(
+                height: 100.0,
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      height: 70.0,
+                      width: 70.0,
+                      margin: const EdgeInsets.all(15.0),
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(100)
+                          ),
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image:
+                              NetworkImage(
+                                  "https://uilogos.co/img/logomark/kyan.png")
+                          )
+                      ),
+                    ),
+                    SizedBox(
+                      height: 100,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 2, 0, 0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            // Text(
+                            // items[index],
+                            // ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 3, 0, 3),
+                              child: Container(
+                                width: 260,
+                                decoration: const BoxDecoration(
+                                  // border: Border.all(color: Colors.teal),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10))
+                                ),
+                                child: const Text(
+                                  "Genotype Test Order", textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 18),),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 5, 0, 2),
+                              child: Container(
+                                width: 260,
+                                child: const Text(
+                                  "DjangoLaboratory",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Color.fromARGB(255, 48, 48, 54)
+                                  ),),
+
+
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 5, 0, 2),
+                              child: Container(
+                                width: 260,
+                                child: const Text(
+                                  "Delivered on: 27/02/2022",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Color.fromARGB(255, 48, 48, 54)
+                                  ),),
+
+
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
-              Card(
-                child: Container(
-                  padding: const EdgeInsets.all(10.0),
-                  child:  Row(
-                    children: [
-                      Container(
-                          margin: const EdgeInsets.all(10.0),
-                          child: Image.asset('assets/images/splash.jpeg', height: 40, width: 40)
-                      ),
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:  const <Widget>[
-                          Text('Genotype Test Order', style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 20.0,
-                          ) ,),
-                          Text('DjangoLaboratory'),
-                          Text('Delivered on: 27/02/2022'),
-                        ],
-                      ),
-                    ],
-                  ),
+            );
+          },
+        ));
+  }
 
-                ),
-              ),
-              Card(
-                child: Container(
-                  padding: const EdgeInsets.all(10.0),
-                  child:  Row(
-                    children: [
-                      Container(
-                          margin: const EdgeInsets.all(10.0),
-                          child: Image.asset('assets/images/splash.jpeg', height: 40, width: 40)
-                      ),
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:  const <Widget>[
-                          Text('Genotype Test Order', style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 20.0,
-                          ) ,),
-                          Text('DjangoLaboratory'),
-                          Text('Delivered on: 27/02/2022'),
-                        ],
-                      ),
-                    ],
-                  ),
-
-                ),
-              ),
-              Card(
-                child: Container(
-                  padding: const EdgeInsets.all(10.0),
-                  child:  Row(
-                    children: [
-                      Container(
-                          margin: const EdgeInsets.all(10.0),
-                          child: Image.asset('assets/images/splash.jpeg', height: 40, width: 40)
-                      ),
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:  const <Widget>[
-                          Text('Genotype Test Order', style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 20.0,
-                          ) ,),
-                          Text('DjangoLaboratory'),
-                          Text('Delivered on: 27/02/2022'),
-                        ],
-                      ),
-                    ],
-                  ),
-
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+  static List getDummyList() {
+    List list = List.generate(10, (i) {
+      return "Item ${i + 1}";
+    });
+    return list;
   }
 }

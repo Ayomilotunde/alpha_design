@@ -24,7 +24,7 @@ class _State extends State<MyApp> {
   final List<Widget> _widgets = <Widget>[
     const Text('This is News'),
     const Home(),
-    const TrackDelivery(),
+    const MyApp2(),
 
   ];
 
@@ -42,9 +42,9 @@ class _State extends State<MyApp> {
       //     title: const Text('Home '),
       //     ),
 
-      appBar:  AppBar(
-        title: const Text('Home '),
-      ),
+      // appBar:  AppBar(
+      //   title: const Text('Home '),
+      // ),
       drawer:  Drawer(
         child:  Container(
           padding: const EdgeInsets.all(32.0),
