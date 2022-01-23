@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/*
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -15,17 +16,22 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+*/
 
-class MyHomePage extends StatelessWidget {
+class ClosedOrder extends StatelessWidget {
+  const ClosedOrder({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
 
         body: Center(child: SwipeList()));
   }
 }
 
 class SwipeList extends StatefulWidget {
+  const SwipeList({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return ListItemWidget();

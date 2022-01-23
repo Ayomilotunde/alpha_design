@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:alpha_design/open_order.dart';
+import 'package:alpha_design/closed_order.dart';
 
 class MyApp2 extends StatelessWidget {
   const MyApp2({
@@ -9,11 +11,35 @@ class MyApp2 extends StatelessWidget {
   Widget build(BuildContext context) {
     const title = 'Track Delivery';
 
-    return MaterialApp(
-      title: title,
-      home: Scaffold(
+    return DefaultTabController(
+      length: 2,
+      // title: title,
+      child: Scaffold(
         appBar: AppBar(
-          // elevation: 10,
+          bottom: PreferredSize(
+              child: Container(
+                margin: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xffD6D5FB),
+                ),
+                height: 40.0,
+                child: TabBar(
+                  unselectedLabelColor: Colors.black,
+                  indicator: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10), // Creates border
+                    color: const Color(0xff251F9C),
+                  ),
+                  tabs: const [
+                    Tab(
+                        child: Text(
+                      'Open Order',
+                    )),
+                    Tab(child: Text('Closed Order')),
+                  ],
+                ),
+              ),
+              preferredSize: const Size.fromHeight(70.0)),
           title: const Text('Track Delivery'),
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
@@ -23,7 +49,12 @@ class MyApp2 extends StatelessWidget {
           ],
           centerTitle: true,
         ),
-        body: const Center(),
+        body: const TabBarView(
+          children: [
+            Center(child: OpenOrder()),
+            Center(child: ClosedOrder()),
+          ],
+        ),
       ),
     );
   }
