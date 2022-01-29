@@ -1,6 +1,5 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:alpha_design/orders/track_delivery.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -27,15 +26,10 @@ class _State extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      floatingActionButton:  FloatingActionButton(onPressed: _floating,
-      backgroundColor: Colors.amber,
-        mini: true,
-        child: const Icon(Icons.add),
-      ),
       body: Container(
         padding: const EdgeInsets.all(20.0),
-        child: const Center(
-          child: Text('This is my Home'),
+        child:  Center(
+          child: ElevatedButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const TrackingOrder())), child: const Text('Tracking Order')),
         ),
       ),
     );

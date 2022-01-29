@@ -75,6 +75,7 @@ class ListItemWidget extends State<SwipeList> {
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(10, 2, 0, 0),
                         child: Column(
+
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             // Text(

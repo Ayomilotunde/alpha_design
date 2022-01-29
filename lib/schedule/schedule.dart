@@ -1,18 +1,22 @@
+import 'package:alpha_design/schedule/upcoming.dart';
 import 'package:flutter/material.dart';
-import 'package:alpha_design/open_order.dart';
-import 'package:alpha_design/closed_order.dart';
+import 'package:alpha_design/schedule/completed.dart';
+import 'package:alpha_design/schedule/canceled.dart';
+import 'package:alpha_design/orders/closed_order.dart';
 
-class MyApp2 extends StatelessWidget {
-  const MyApp2({
+void main() => runApp(const Schedule());
+
+class Schedule extends StatelessWidget {
+  const Schedule({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    const title = 'Track Delivery';
+    const title = 'Schedule';
 
     return DefaultTabController(
-      length: 2,
+      length: 3,
       // title: title,
       child: Scaffold(
         appBar: AppBar(
@@ -32,30 +36,29 @@ class MyApp2 extends StatelessWidget {
                   ),
                   tabs: const [
                     Tab(
-                        child: Text(
-                      'Open Order',
-                    )),
-                    Tab(child: Text('Closed Order')),
+                        child: Text('Upcoming',)),
+                    Tab(child: Text('Completed')),
+                    Tab(child: Text('Canceled')),
                   ],
                 ),
               ),
               preferredSize: const Size.fromHeight(70.0)),
-          title: const Text('Track Delivery'),
+          title:  const Text(title),
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
           leading: const Icon(Icons.arrow_back_ios),
-          actions: const [
-            Icon(Icons.search),
-          ],
+
           centerTitle: true,
         ),
         body: const TabBarView(
           children: [
-            Center(child: OpenOrder()),
-            Center(child: ClosedOrder()),
+            Center(child: Upcoming()),
+            Center(child: Completed()),
+            Center(child: Canceled()),
           ],
         ),
       ),
     );
   }
 }
+

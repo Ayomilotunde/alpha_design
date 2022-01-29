@@ -1,7 +1,8 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:alpha_design/home_screen.dart';
-import 'package:alpha_design/track_delivery.dart';
+import 'package:alpha_design/schedule/schedule.dart';
+
 
 void main() {
   runApp(const MaterialApp(
@@ -19,12 +20,13 @@ class MyApp extends StatefulWidget {
 class _State extends State<MyApp> {
    List<BottomNavigationBarItem> _items;
   final String _bValue = '';
-  int index = 1;
+  int index = 0;
 
   final List<Widget> _widgets = <Widget>[
-    const Text('This is News'),
     const Home(),
-    const MyApp2(),
+    const Schedule(),
+    const Text('This is Messages'),
+    const Text('This is Profile'),
 
   ];
 
@@ -65,13 +67,14 @@ class _State extends State<MyApp> {
       ),
       body:  Center(child: _widgets.elementAt(index)),
       bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Colors.black,
+        selectedItemColor: const Color(0xff251F9C),
+        showUnselectedLabels: true,
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.library_books), label: 'News'),
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          // BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.calendar_today_rounded), label: 'Schedule'),
+          BottomNavigationBarItem(icon: Icon(Icons.mail_outline), label: 'Message'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
         currentIndex: index,
         onTap: _onTapItem,
