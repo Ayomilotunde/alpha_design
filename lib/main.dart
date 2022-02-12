@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:alpha_design/home_screen.dart';
 import 'package:alpha_design/schedule/schedule.dart';
+import 'package:alpha_design/calls/call_ended.dart';
 
 
 void main() {
@@ -26,7 +27,7 @@ class _State extends State<MyApp> {
     const Home(),
     const Schedule(),
     const Text('This is Messages'),
-    const Text('This is Profile'),
+    const CallEnded(),
 
   ];
 
